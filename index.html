@@ -162,6 +162,7 @@
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
             cursor: pointer;
+            flex-shrink: 0;
         }
         
         .hero-card::after {
@@ -198,8 +199,9 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 16px;
-            padding: 0 24px;
+            padding: 0 24px 40px 24px; /* Added bottom padding to prevent cutoff */
             flex-grow: 1;
+            overflow-y: auto; /* Allow scrolling if screen is too short */
         }
 
         .menu-card {
@@ -778,10 +780,7 @@
                 <span class="material-icons-round">mic</span>
                 <span>Recordings</span>
             </div>
-            <div class="nav-item">
-                <span class="material-icons-round">contacts</span>
-                <span>Contacts</span>
-            </div>
+            <!-- Contacts Icon Removed as requested -->
             <div class="nav-item" onclick="navigateTo('screen-settings')">
                 <span class="material-icons-round">more_horiz</span>
                 <span>More</span>
@@ -901,7 +900,7 @@
             <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
 
             <h3>7. Contact Us</h3>
-            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at Joheliv Labs.</p>
+            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at <strong>johelivlabs@gmail.com</strong>.</p>
         </div>
     </div>
 

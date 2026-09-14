@@ -1,13 +1,25 @@
-const CACHE_NAME = "call-recorder-v1";
+const CACHE_NAME = "call-recorder-v2-FIXED"; // changed v1 to v2
 const FILES = ["./", "./index.html", "./icon.png", "./manifest.json"];
 
 self.addEventListener("install", e => {
+  self.skipWaiting(); // force update immediately
   e.waitUntil(caches.open(CACHE_NAME).then(c => c.addAll(FILES)));
-  self.skipWaiting();
+});
+
+self.addEventListener("activate", e => {
+  // DELETE old cache v1
+  e.waitUntil(
+    caches.keys().then(keys => {
+      return Promise.all(
+        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+      );
+    })
+  );
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", e => {
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request))
+    fetch(e.request).catch(() => caches.match(e.request))
   );
 });

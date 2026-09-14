@@ -1,0 +1,28 @@
+{
+  "name": "Call Recorder - Record & Save",
+  "short_name": "Call Recorder",
+  "description": "Record • Save • Never Miss",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a1931",
+  "theme_color": "#0a1931",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
